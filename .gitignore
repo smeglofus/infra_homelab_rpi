@@ -1,7 +1,11 @@
 # ---- secrets / env files ----
-**/.env
 **/.env.*
 **/*.env
+.env
+**/.env
+*.env
+.env.*
+
 
 #  .env.exxamle exceptions
 !**/.env.example
