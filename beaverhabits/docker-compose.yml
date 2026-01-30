@@ -1,0 +1,31 @@
+services:
+  beaverhabits:
+    image: daya0576/beaverhabits:latest
+    container_name: beaverhabits
+    restart: unless-stopped
+    user: "${PUID:-1000}:${PGID:-1000}"
+
+    environment:
+      - HABITS_STORAGE=USER_DISK
+
+    volumes:
+      - /opt/data_infra_homelab_rpi/beaver:/app/.user
+
+    networks:
+      - proxy_net
+
+    labels:
+      - "traefik.enable=true"
+
+      # Router
+      - "traefik.http.routers.habits.rule=Host(`habits.ucimse.lol`)"
+      - "traefik.http.routers.habits.entrypoints=websecure"
+      - "traefik.http.routers.habits.tls=true"
+      - "traefik.http.routers.habits.tls.certresolver=le"
+
+      # Service (vnitřní port v kontejneru)
+      - "traefik.http.services.habits.loadbalancer.server.port=8080"
+
+networks:
+  proxy_net:
+    external: true

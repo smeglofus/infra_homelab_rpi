@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  pihole:
+    image: pihole/pihole:latest
+    container_name: pihole
+    restart: unless-stopped
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "8081:80"
+    environment:
+      TZ=Europe/Prague
+      WEBPASSWORD=${WEB_PASSWORD}
+    volumes:
+      - /opt/data_infra_homelab_rpi/pihole/etc-pihole:/etc/pihole
+      - /opt/data_infra_homelab_rpi/pihole/etc-dnsmasq.d:/etc/dnsmasq.d
+    cap_add:
+      - NET_ADMIN

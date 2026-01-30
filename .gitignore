@@ -1,0 +1,56 @@
+# ---- secrets / env files ----
+**/.env
+**/.env.*
+**/*.env
+
+#  .env.exxamle exceptions
+!**/.env.example
+!**/*.env.example
+!**/.env.sample
+!**/*.env.sample
+!**/.env.template
+!**/*.env.template
+
+# ---- common secret files ----
+**/*.key
+**/*.pem
+**/*.p12
+**/*.pfx
+**/*.crt
+**/*.csr
+**/*id_rsa*
+**/*id_ed25519*
+**/secrets/
+**/secret/
+**/*secret*
+**/*token*
+**/*password*
+
+# ---- runtime data / databases / backups ----
+**/data/
+**/db/
+**/database/
+**/backups/
+**/backup/
+**/*.db
+**/*.sqlite
+**/*.sqlite3
+**/*.bak
+**/*.dump
+**/*.tar
+**/*.tar.gz
+**/*.tgz
+**/*.zip
+
+# ---- logs / temp ----
+**/*.log
+**/logs/
+**/tmp/
+**/.tmp/
+**/.cache/
+
+# ---- OS / editor ----
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
