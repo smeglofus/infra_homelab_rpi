@@ -8,6 +8,32 @@ theme: dark
 color: slate
 hideVersion: true
 
+autoRefresh: 30000
+quicklaunch:
+  searchDescriptions: true
+  hideInternetSearch: false
+  provider: duckduckgo
+
+layout:
+  Dashboard:
+    style: row
+    columns: 3
+  Personal:
+    style: row
+    columns: 2
+  Media:
+    style: row
+    columns: 1
+  Arr Stack:
+    style: row
+    columns: 3
+  Downloads:
+    style: row
+    columns: 2
+  Infrastructure:
+    style: row
+    columns: 2
+
 providers:
   openweathermap: ${OPENWEATHERMAP_API_KEY}
   weatherapi: ${WEATHERAPI_API_KEY}
