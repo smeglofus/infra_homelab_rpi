@@ -44,14 +44,14 @@ services:
 
     environment:
       - TZ=Europe/Prague
-      - HOMEPAGE_ALLOWED_HOSTS=home.ucimse.lol
+      - HOMEPAGE_ALLOWED_HOSTS=${HOMEPAGE_HOST}
 
     networks:
       - proxy_net
 
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.homepage.rule=Host(`home.ucimse.lol`)"
+      - "traefik.http.routers.homepage.rule=Host(`${HOMEPAGE_HOST}`)"
       - "traefik.http.routers.homepage.entrypoints=websecure"
       - "traefik.http.routers.homepage.tls=true"
       # - "traefik.http.routers.homepage.tls.certresolver=le"
