@@ -1,0 +1,62 @@
+version: "3.9"
+
+services:
+  traefik:
+    image: traefik:v2.11
+    container_name: traefik
+    restart: unless-stopped
+    command:
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--providers.file.directory=/dynamic"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--api.dashboard=true"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /opt/data_infra_homelab_rpi/traefik/dynamic:/dynamic:ro
+      - /opt/data_infra_homelab_rpi/traefik/certs:/certs:ro
+    networks:
+      - proxy_net
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared
+    restart: unless-stopped
+    command: tunnel run
+    networks:
+      - proxy_net
+    environment:
+      - TUNNEL_TOKEN=${TUNNEL_TOKEN}
+
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+    restart: unless-stopped
+
+    # Persist config
+    volumes:
+      - /opt/data_infra_homelab_rpi/homepage/config:/app/config
+#      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+    environment:
+      - TZ=Europe/Prague
+      - HOMEPAGE_ALLOWED_HOSTS=home.ucimse.lol
+
+    networks:
+      - proxy_net
+
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.homepage.rule=Host(`home.ucimse.lol`)"
+      - "traefik.http.routers.homepage.entrypoints=websecure"
+      - "traefik.http.routers.homepage.tls=true"
+      # - "traefik.http.routers.homepage.tls.certresolver=le"
+      - "traefik.http.services.homepage.loadbalancer.server.port=3000"
+
+networks:
+  proxy_net:
+    external: true
