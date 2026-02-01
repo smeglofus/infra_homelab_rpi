@@ -1,0 +1,43 @@
+- Dashboard:
+    - Actual Budget:
+        href: https://budget.ucimse.lol
+        description: Budget
+        icon: actualbudget
+    - Habit Tracker:
+        href: https://habits.ucimse.lol
+        description: Habits
+
+- Media:
+    - Jellyfin:
+        href: http://192.168.88.12:8096/
+        description: Media server
+        icon: jellyfin
+
+- Arr Stack:
+    - Radarr:
+        href: http://192.168.88.12:7878/
+        icon: radarr
+    - Sonarr:
+        href: http://192.168.88.12:8989/
+        icon: sonarr
+    - Prowlarr:
+        href: http://192.168.88.12:9696/
+        icon: prowlarr
+    - Bazarr:
+        href: http://192.168.88.12:6767/
+        icon: bazarr
+    - Lidarr:
+        href: http://192.168.88.12:8686/
+        icon: lidarr
+
+- Downloads:
+    - SABnzbd:
+        href: http://192.168.88.12:8080/
+    - qBittorrent:
+        href: http://192.168.88.12:8081/
+
+- Ops:
+    - Portainer:
+        href: http://192.168.88.12:9000/
+        icon: portainer
+
