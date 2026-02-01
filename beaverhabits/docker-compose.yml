@@ -18,7 +18,7 @@ services:
       - "traefik.enable=true"
 
       # Router
-      - "traefik.http.routers.habits.rule=Host(`habits.ucimse.lol`)"
+      - "traefik.http.routers.habits.rule=Host(`${HABITS_HOST}`)"
       - "traefik.http.routers.habits.entrypoints=websecure"
       - "traefik.http.routers.habits.tls=true"
       - "traefik.http.routers.habits.tls.certresolver=le"

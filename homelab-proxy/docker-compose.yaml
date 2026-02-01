@@ -39,19 +39,19 @@ services:
 
     # Persist config
     volumes:
-      - /opt/data_infra_homelab_rpi/homepage/config:/app/config
+      - ${HOMEPAGE_CONFIG_DIR:-/opt/data_infra_homelab_rpi/homepage/config}:/app/config
 #      - /var/run/docker.sock:/var/run/docker.sock:ro
 
     environment:
       - TZ=Europe/Prague
-      - HOMEPAGE_ALLOWED_HOSTS=home.ucimse.lol
+      - HOMEPAGE_ALLOWED_HOSTS=${HOMEPAGE_HOST}
 
     networks:
       - proxy_net
 
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.homepage.rule=Host(`home.ucimse.lol`)"
+      - "traefik.http.routers.homepage.rule=Host(`${HOMEPAGE_HOST}`)"
       - "traefik.http.routers.homepage.entrypoints=websecure"
       - "traefik.http.routers.homepage.tls=true"
       # - "traefik.http.routers.homepage.tls.certresolver=le"
