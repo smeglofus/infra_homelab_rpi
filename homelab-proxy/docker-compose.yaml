@@ -37,6 +37,9 @@ services:
     container_name: homepage
     restart: unless-stopped
 
+    env_file:
+      - ./.env
+
     # Persist config
     volumes:
       - /opt/infra_homelab_rpi/homelab-proxy/homepage/config:/app/config
