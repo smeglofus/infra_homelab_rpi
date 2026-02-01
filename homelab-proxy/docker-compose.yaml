@@ -39,7 +39,7 @@ services:
 
     # Persist config
     volumes:
-      - /opt/data_infra_homelab_rpi/homepage/config:/app/config
+      - /opt/infra_homelab_rpi/homepage/config:/app/config
 #      - /var/run/docker.sock:/var/run/docker.sock:ro
 
     environment:
