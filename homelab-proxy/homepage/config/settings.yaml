@@ -2,6 +2,12 @@
 # For configuration options and examples, please see:
 # https://gethomepage.dev/configs/settings/
 
+title: Homelab
+headerStyle: boxed
+theme: dark
+color: slate
+hideVersion: true
+
 providers:
-  openweathermap: openweathermapapikey
-  weatherapi: weatherapiapikey
+  openweathermap: ${OPENWEATHERMAP_API_KEY}
+  weatherapi: ${WEATHERAPI_API_KEY}

@@ -1,43 +1,49 @@
 - Dashboard:
+    - Homepage:
+        href: ${HOMEPAGE_URL}
+        description: Homelab start page
+        icon: homepage
+    - Portainer:
+        href: ${PORTAINER_URL}
+        description: Container management
+        icon: portainer
+
+- Personal:
     - Actual Budget:
-        href: https://budget.ucimse.lol
+        href: ${ACTUAL_BUDGET_URL}
         description: Budget
         icon: actualbudget
     - Habit Tracker:
-        href: https://habits.ucimse.lol
+        href: ${HABITS_URL}
         description: Habits
 
 - Media:
     - Jellyfin:
-        href: http://192.168.88.12:8096/
+        href: ${JELLYFIN_URL}
         description: Media server
         icon: jellyfin
 
 - Arr Stack:
     - Radarr:
-        href: http://192.168.88.12:7878/
+        href: ${RADARR_URL}
         icon: radarr
     - Sonarr:
-        href: http://192.168.88.12:8989/
+        href: ${SONARR_URL}
         icon: sonarr
     - Prowlarr:
-        href: http://192.168.88.12:9696/
+        href: ${PROWLARR_URL}
         icon: prowlarr
     - Bazarr:
-        href: http://192.168.88.12:6767/
+        href: ${BAZARR_URL}
         icon: bazarr
     - Lidarr:
-        href: http://192.168.88.12:8686/
+        href: ${LIDARR_URL}
         icon: lidarr
 
 - Downloads:
     - SABnzbd:
-        href: http://192.168.88.12:8080/
+        href: ${SABNZBD_URL}
+        icon: sabnzbd
     - qBittorrent:
-        href: http://192.168.88.12:8081/
-
-- Ops:
-    - Portainer:
-        href: http://192.168.88.12:9000/
-        icon: portainer
-
+        href: ${QBITTORRENT_URL}
+        icon: qbittorrent
