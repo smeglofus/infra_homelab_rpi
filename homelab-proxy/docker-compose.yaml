@@ -39,16 +39,16 @@ services:
 
     env_file:
       - ./.env
-
+      - ./homepage/config/.env
     # Persist config
     volumes:
       - /opt/infra_homelab_rpi/homelab-proxy/homepage/config:/app/config
-#      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
 
     environment:
       - TZ=Europe/Prague
-      - HOMEPAGE_ALLOWED_HOSTS=${HOMEPAGE_HOST}
-
+    #  - HOMEPAGE_ALLOWED_HOSTS=${HOMEPAGE_HOST}
+      - HOMEPAGE_ALLOWED_HOSTS=home.ucimse.lol,home.ucimse.lol:443
     networks:
       - proxy_net
 
@@ -59,6 +59,13 @@ services:
       - "traefik.http.routers.homepage.tls=true"
       # - "traefik.http.routers.homepage.tls.certresolver=le"
       - "traefik.http.services.homepage.loadbalancer.server.port=3000"
+
+      - homepage.group=Infrastructure
+      - homepage.name=Traefik
+      - homepage.icon=traefik
+      - homepage.href=http://192.168.88.12:8080
+      - homepage.description=Reverse proxy
+
 
 networks:
   proxy_net:

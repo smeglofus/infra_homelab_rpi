@@ -1,0 +1,61 @@
+- Dashboard:
+    - Homepage:
+        href: ${HOMEPAGE_URL}
+        description: Homelab start page
+        icon: homepage
+    - Portainer:
+        href: "{{HOMEPAGE_PORTAINER_URL}}"
+        #href: ${HOMEPAGE_PORTAINER_URL}
+        description: Container management
+        icon: portainer
+    - Traefik:
+        href: ${HOMEPAGE_TRAEFIK_URL}
+        description: Reverse proxy dashboard
+        icon: traefik
+
+- Personal:
+    - Actual Budget:
+        href: https://budget.ucimse.lol
+        description: Budget
+        icon: actualbudget
+    - Habit Tracker:
+        href: ${HOMEPAGE_HABITS_URL}
+        description: Habits
+        icon: mdi-sprout
+
+- Media:
+    - Jellyfin:
+        href: ${HOMEPAGE_JELLYFIN_URL}
+        description: Media server
+        icon: jellyfin
+
+- Arr Stack:
+    - Radarr:
+        href: ${HOMEPAGE_RADARR_URL}
+        icon: radarr
+    - Sonarr:
+        href: ${HOMEPAGE_SONARR_URL}
+        icon: sonarr
+    - Prowlarr:
+        href: ${HOMEPAGE_PROWLARR_URL}
+        icon: prowlarr
+    - Bazarr:
+        href: ${HOMEPAGE_BAZARR_URL}
+        icon: bazarr
+    - Lidarr:
+        href: ${HOMEPAGE_LIDARR_URL}
+        icon: lidarr
+
+- Downloads:
+    - SABnzbd:
+        href: ${HOMEPAGE_SABNZBD_URL}
+        icon: sabnzbd
+    - qBittorrent:
+        href: ${HOMEPAGE_QBITTORRENT_URL}
+        icon: qbittorrent
+
+- Infrastructure:
+    - Gluetun:
+        href: ${HOMEPAGE_GLUETUN_URL}
+        description: VPN control panel
+        icon: mdi-shield-lock

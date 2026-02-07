@@ -173,3 +173,8 @@
 [2026-01-30T16:31:20.466Z] error: Host validation failed for: home.ucimse.lol. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
 [2026-01-30T16:31:49.172Z] error: Host validation failed for: home.ucimse.lol. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
 [2026-01-30T16:31:49.178Z] error: Host validation failed for: home.ucimse.lol. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-06T14:05:47.459Z] info: bookmarks.yaml was copied to the config folder
+[2026-02-06T14:05:47.488Z] info: widgets.yaml was copied to the config folder
+[2026-02-06T14:05:47.489Z] info: custom.css was copied to the config folder
+[2026-02-06T14:05:47.490Z] info: custom.js was copied to the config folder
+[2026-02-07T08:56:16.872Z] info: services.yaml was copied to the config folder
