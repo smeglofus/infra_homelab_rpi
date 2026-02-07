@@ -21,12 +21,6 @@ services:
       - /opt/data_infra_homelab_rpi/traefik/certs:/certs:ro
     networks:
       - proxy_net
-    labels:
-      - homepage.group=Infrastructure
-      - homepage.name=Traefik
-      - homepage.icon=traefik
-      - homepage.href=${HOMEPAGE_TRAEFIK_URL}
-      - homepage.description=Reverse proxy
 
   cloudflared:
     image: cloudflare/cloudflared:latest
@@ -37,20 +31,12 @@ services:
       - proxy_net
     environment:
       - TUNNEL_TOKEN=${TUNNEL_TOKEN}
-    labels:
-      - homepage.group=Infrastructure
-      - homepage.name=Cloudflared
-      - homepage.icon=cloudflare
-      - homepage.description=Cloudflare tunnel
 
   homepage:
     image: ghcr.io/gethomepage/homepage:latest
     container_name: homepage
     restart: unless-stopped
 
-    env_file:
-      - ./.env
-      - ./homepage/config/.env
     # Persist config
     volumes:
       - /opt/infra_homelab_rpi/homelab-proxy/homepage/config:/app/config
@@ -58,8 +44,8 @@ services:
 
     environment:
       - TZ=Europe/Prague
-    #  - HOMEPAGE_ALLOWED_HOSTS=${HOMEPAGE_HOST}
-      - HOMEPAGE_ALLOWED_HOSTS=home.ucimse.lol,home.ucimse.lol:443
+      - HOMEPAGE_ALLOWED_HOSTS=${HOMEPAGE_HOST}
+    #  - HOMEPAGE_ALLOWED_HOSTS=home.ucimse.lol,home.ucimse.lol:443
     networks:
       - proxy_net
 
