@@ -25,6 +25,11 @@ services:
 
       # Service (vnitřní port v kontejneru)
       - "traefik.http.services.habits.loadbalancer.server.port=8080"
+      - homepage.group=Apps
+      - homepage.name=Beaver Habits
+      - homepage.icon=mdi-calendar-check
+      - homepage.href=${HOMEPAGE_HABITS_URL}
+      - homepage.description=Habit tracker
 
 networks:
   proxy_net:

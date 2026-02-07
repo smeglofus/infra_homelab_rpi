@@ -21,6 +21,12 @@ services:
       - /opt/data_infra_homelab_rpi/traefik/certs:/certs:ro
     networks:
       - proxy_net
+    labels:
+      - homepage.group=Infrastructure
+      - homepage.name=Traefik
+      - homepage.icon=traefik
+      - homepage.href=${HOMEPAGE_TRAEFIK_URL}
+      - homepage.description=Reverse proxy
 
   cloudflared:
     image: cloudflare/cloudflared:latest
@@ -31,6 +37,11 @@ services:
       - proxy_net
     environment:
       - TUNNEL_TOKEN=${TUNNEL_TOKEN}
+    labels:
+      - homepage.group=Infrastructure
+      - homepage.name=Cloudflared
+      - homepage.icon=cloudflare
+      - homepage.description=Cloudflare tunnel
 
   homepage:
     image: ghcr.io/gethomepage/homepage:latest
@@ -59,12 +70,11 @@ services:
       - "traefik.http.routers.homepage.tls=true"
       # - "traefik.http.routers.homepage.tls.certresolver=le"
       - "traefik.http.services.homepage.loadbalancer.server.port=3000"
-
       - homepage.group=Infrastructure
-      - homepage.name=Traefik
-      - homepage.icon=traefik
-      - homepage.href=http://192.168.88.12:8080
-      - homepage.description=Reverse proxy
+      - homepage.name=Homepage
+      - homepage.icon=homepage
+      - homepage.href=${HOMEPAGE_URL}
+      - homepage.description=Home dashboard
 
 
 networks:
